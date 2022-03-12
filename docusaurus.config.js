@@ -12,7 +12,7 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.jpeg',
   organizationName: 'aweffr', // Usually your GitHub org/user name.
   projectName: 'aweffr-doc', // Usually your repo name.
 
@@ -24,13 +24,13 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/aweffr/aweffr-doc/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: 'https://github.com/aweffr/aweffr-doc/tree/master/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/aweffr/aweffr-doc/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/aweffr/aweffr-doc/tree/master/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -46,7 +46,7 @@ const config = {
         title: 'aweffr\'s tech blog',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          src: 'img/favicon.jpeg',
         },
         items: [
           {
