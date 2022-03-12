@@ -6,15 +6,15 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  url: 'https://your-docusaurus-test-site.com',
+  title: 'aweffr\'s tech blog',
+  tagline: 'A passionate problem solver',
+  url: 'https://aweffr.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'aweffr', // Usually your GitHub org/user name.
+  projectName: 'aweffr-doc', // Usually your repo name.
 
   presets: [
     [
@@ -24,13 +24,13 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: 'https://github.com/aweffr/aweffr-doc/tree/main/packages/create-docusaurus/templates/shared/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/aweffr/aweffr-doc/tree/main/packages/create-docusaurus/templates/shared/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -43,7 +43,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'My Site',
+        title: 'aweffr\'s tech blog',
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo.svg',
@@ -53,11 +53,15 @@ const config = {
             type: 'doc',
             docId: 'intro',
             position: 'left',
-            label: 'Tutorial',
+            label: '文档',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            to: '/blog',
+            label: '博客',
+            position: 'left'
+          },
+          {
+            href: 'https://github.com/aweffr/aweffr-doc',
             label: 'GitHub',
             position: 'right',
           },
@@ -67,46 +71,58 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: '速查手册',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'Nginx 速查',
+                to: '/docs/nginx-cheatsheet',
               },
+              {
+                label: 'ReactNative Style 速查',
+                to: '/docs/react-native/react-native-style-cheatsheet'
+              },
+              {
+                label: 'Docker (Compose) 速查',
+                to: '/docs/docker-cheatsheet',
+              }
             ],
           },
           {
-            title: 'Community',
+            title: '常用站点',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: 'React Native Releases',
+                to: 'https://github.com/facebook/react-native/blob/main/CHANGELOG.md'
               },
               {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                label: 'Django论坛',
+                to: 'https://www.reddit.com/r/django/top/?t=week'
               },
               {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
-              },
-            ],
+                label: '苏洋的博客',
+                to: 'https://soulteary.com/'
+              }
+            ]
           },
           {
-            title: 'More',
+            title: '关于我',
             items: [
               {
-                label: 'Blog',
+                label: '博客',
                 to: '/blog',
               },
               {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                label: '掘金',
+                href: 'https://juejin.cn/user/3087084380761064',
+              },
+              {
+                label: 'zhihu',
+                href: 'https://www.zhihu.com/people/zou-le-69',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} | 沪ICP备18047501号-1`,
       },
       prism: {
         theme: lightCodeTheme,
