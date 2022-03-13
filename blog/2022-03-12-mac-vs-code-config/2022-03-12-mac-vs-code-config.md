@@ -12,19 +12,22 @@ tags: ["C/C++", "mac", "VS Code"]
 
 ## 总体步骤
 1. 安装XCode
-2. VS Code 安装 C/C++ Extension Pack 插件
+2. VS Code 安装插件
+    1. `C/C++ Extension Pack` 
+    2. `Code Runner`
 3. 新建项目 
-  1. `mkdir learning-c-programming && cd learning-c-programming && mkdir {.vscode,build}`
+    1. `mkdir learning-c-programming && cd learning-c-programming && mkdir {.vscode,build}`
 4. 使用VS Code打开目录, 新建以下文件
-  1. tasks.json # 用于编译c++文件
-  2. launch.json # 用于使用vscode自带的debug工具（左侧的小虫图标）
-  3. c_cpp_properties.json # 用于使用vscode自带的代码提示工具如 IntelliSense
+    1. `tasks.json` # 用于编译c++文件
+    2. `launch.json` # 用于使用vscode自带的debug工具（左侧的小虫图标）
+    3. `c_cpp_properties.json` # 用于使用vscode自带的代码提示工具如 IntelliSense
+    4. `settings.json` # 添加 Code Runner 相关配置
 
 ### Workspace 配置文件
 
 #### 配置 tasks.json
 
-快捷键 `Command + Shift + B`, vscode会执行tasks.json中的任务.
+快捷键 `Command+Shift+B`, vscode会执行tasks.json中的任务.
 
 
 文件内容如下:
@@ -68,6 +71,7 @@ c_cpp_properties.json 的作用是：代码提示、代码跳转等
             "includePath": [
                 "${workspaceFolder}/**",
                 "/Library/Developer/CommandLineTools/usr/include",
+                // 注意, clang的include文件位置需要根据实际安装结果修改
                 "/Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include",
                 "/usr/local/include"
             ],
@@ -116,6 +120,27 @@ launch.json是调用vscode debug功能的配置文件
 }
 ```
 
+#### 配置 settings.json
+
+配置 Code Runner 来快捷执行代码。
+- `Control+Option+N` 编译并执行代码
+- `Control+Option+M` 终止执行
+
+```json
+{
+    "files.associations": {
+        "__bit_reference": "c",
+        "__string": "c",
+        "cstring": "c",
+        "cstdio": "c"
+    },
+    "code-runner.executorMap": {
+        "c": "cd $dir && clang -Wall -Wno-unused-variable -Wno-implicit-function-declaration -std=c11 $fileName -o $workspaceRoot/build/$fileNameWithoutExt && cd $workspaceRoot/build && ./$fileNameWithoutExt",
+        "cpp": "cd $dir && clang++ -Wall -Wno-unused-variable -Wno-implicit-function-declaration -std=c++17 $fileName -o $workspaceRoot/build/$fileNameWithoutExt && cd $workspaceRoot/build && ./$fileNameWithoutExt"
+    }
+}
+```
+
 ## 使用说明
 - 针对OJ, 所以认为单个c文件即为完整程序。
 - 在打开的`foo.c`文件tab中通过`Command + Shift + B`编译文件, 产物会生成在`build/foo`, 可通过 `cd build && ./foo`来运行.
@@ -132,19 +157,19 @@ launch.json是调用vscode debug功能的配置文件
 
 ```c
 /**
- * @file bubble-sort.c
+ * @file bubble-sort.cpp
  * @author aweffr (aweffr@foxmail.com)
- * @brief 提交OJ模板, 用于演示: 1. 读数组数据 2. 如何按环境区分输入源
+ * @brief 提交OJ模板, 演示: 1. 读数组数据 2. 按环境区分如何处理输入
  * @version 0.1
  * @date 2022-03-12
  */
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
 
 #define MAX_INPUT_SIZE 50000
 
-#define __DEV__ 1
+#define __DEV__ 0
 #define __DEV_FILE__ "/Users/aweffr/Developer/learning-c-programming/problem-set1/input.txt"
 
 void swap(int *arr, int i, int j);
@@ -159,6 +184,7 @@ FILE *get_input()
   FILE *fptr = stdin;
   if (__DEV__)
   {
+    printf("[DEBUG]Reading input from %s ...\n", __DEV_FILE__);
     fptr = fopen(__DEV_FILE__, "r");
     if (fptr == NULL)
     {
@@ -171,9 +197,9 @@ FILE *get_input()
 
 int main(int argc, char *argv[])
 {
-  FILE *fptr = get_input();
-
   int N = 0;
+
+  FILE *fptr = get_input();
 
   fscanf(fptr, "%d\n", &N);
 
@@ -199,7 +225,7 @@ int main(int argc, char *argv[])
   printf("sorted result: ");
   for (int i = 0; i < N; i++)
   {
-    char *fmt = (i == 0) ? " %d" : ", %d";
+    const char *fmt = (i == 0) ? " %d" : ", %d";
     printf(fmt, input_arr[i]);
   }
   printf("\n");
@@ -216,7 +242,14 @@ void swap(int *arr, int i, int j)
 
 ```
 
+Code Runner 执行效果:
+```log
+[Running] cd "/Users/aweffr/Developer/learning-c-programming/problem-set1/" && clang++ -Wall -Wno-unused-variable -Wno-implicit-function-declaration -std=c++17 bubble-sort.cpp -o /Users/aweffr/Developer/learning-c-programming/build/bubble-sort && cd /Users/aweffr/Developer/learning-c-programming/build && ./bubble-sort
+[DEBUG]Reading input from /Users/aweffr/Developer/learning-c-programming/problem-set1/input.txt ...
+sorted result:  1, 2, 3, 4, 8, 11, 111, 123, 12312, 12313
 
+[Done] exited with code=0 in 2.958 seconds
+```
 
 ## 参考文档
 1. [segmentfault: mac vscode c++ 环境配置及异常的语法提示](https://segmentfault.com/a/1190000039129854)
