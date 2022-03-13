@@ -42,7 +42,7 @@ tags: ["C/C++", "mac", "VS Code"]
             "args": [
                 "-Wall",
                 "-Wno-unused-variable",
-                "-std=c11",
+                "-std=c++17",
                 "-g",
                 "${file}",
                 "-o",
