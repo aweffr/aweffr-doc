@@ -1,6 +1,5 @@
 import React from 'react';
 import Layout from '@theme/Layout';
-import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import '../css/resume.scss';
 import chineseDict from '../lang/chinese';
@@ -213,7 +212,7 @@ const projectsData = [
       '周报系统(2021.8): 开发了统一的内部周报系统, 具有附件、填写提醒、汇总导入、抄送等功能, 与内部IM深度集成。',
       '运营大屏(2018.4 - 2019.5): 从数据中台的报表数据库取数, 为运营中台持续开发并维护业务监控大屏。',
       '第一届WAIC会展大屏(2018.8): 开发公司在第一届世界人工智能大会的会展大屏, 展示实时股票市场数据和数据分析系统的数据。',
-      'Abaqus自动化建模(2017.1-2018.4): 基于Abaqus的Python接口开发网壳结构的自动化建模和迭代找形程序, 探索一种可简易布置后一次拉升成型的网壳建筑方案的可行性。'
+      'Abaqus自动化建模(2017.1-2018.3): 基于Abaqus的Python接口开发网壳结构的自动化建模和迭代找形程序, 探索一种可简易布置后一次拉升成型的网壳建筑方案的可行性。'
     ]
   }
 ]
@@ -275,7 +274,7 @@ function Resume() {
 
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
+      title={`${_t('Resume')} | ${siteConfig.title}`}
       description="Description will go into a meta tag in <head />">
       <main>
         <div className="resume-container">
