@@ -1,0 +1,56 @@
+.resume-container {
+
+    padding: 2rem 4rem;
+
+    .header-container {
+        display: flex;
+
+        .header-basic-info {
+            width: 30%;
+        }
+
+        .header-summary {
+            width: 70%;
+        }
+    }
+
+    .my-section {
+        margin-top: 1.25rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .my-list-item {
+        display: flex;
+        justify-content: space-between;
+
+        &:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+        
+        .main-content {
+            div:nth-child(1) {
+                font-size: 1.15rem;
+                font-weight: bold;
+            }
+        }
+
+        .location-and-date {
+            text-align: end;
+        }
+    }
+
+    .skill-container {
+        display: flex;
+        justify-content: space-between;
+    
+        .skill-column {
+            width: 25.5vw;
+    
+            .skill-item {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+}
+

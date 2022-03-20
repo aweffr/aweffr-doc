@@ -16,6 +16,8 @@ const config = {
   organizationName: 'aweffr', // Usually your GitHub org/user name.
   projectName: 'aweffr-doc', // Usually your repo name.
 
+  plugins: ['docusaurus-plugin-sass'],
+
   presets: [
     [
       'classic',
@@ -58,6 +60,11 @@ const config = {
           {
             to: '/blog',
             label: '博客',
+            position: 'left'
+          },
+          {
+            to: '/resume',
+            label: '关于我',
             position: 'left'
           },
           {
