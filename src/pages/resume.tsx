@@ -234,8 +234,6 @@ const tK = (lang: Language) => {
   return func;
 }
 
-const localStorageLangKey = 'resumeLang';
-
 function ProjectDesc({ text }: { text: string }) {
   let indexOfSubTitle = text.indexOf(': ');
   if (indexOfSubTitle === -1) {
@@ -247,23 +245,17 @@ function ProjectDesc({ text }: { text: string }) {
   }
 }
 
+// TODO: utilize docuarus language support
+
 function Resume() {
   const { siteConfig } = useDocusaurusContext();
-  const [lang, setLang] = React.useState<Language>(() => {
-    const _cache = localStorage.getItem(localStorageLangKey);
-    if (_cache === Language.chinese || _cache === Language.english) {
-      return _cache;
-    }
-    return Language.chinese;
-  });
+  const [lang, setLang] = React.useState<Language>(Language.chinese);
 
   const onClickSwitchLang = React.useCallback((e) => {
     if (lang === Language.chinese) {
       setLang(Language.english);
-      localStorage.setItem(localStorageLangKey, Language.english);
     } else {
       setLang(Language.chinese);
-      localStorage.setItem(localStorageLangKey, Language.chinese);
     }
   }, [lang]);
 
