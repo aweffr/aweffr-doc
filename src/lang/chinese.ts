@@ -10,5 +10,5 @@ export default {
     "Machine Learning": "机器学习",
     "System Design": "系统设计",
     "Performance Tuning": "性能优化",
-    "System Programming": "Linux系统编程"
+    "System Programming": "Linux系统编程",
 }
