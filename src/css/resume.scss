@@ -27,6 +27,11 @@
 
     padding: 2rem 4rem;
 
+    @media (max-width: 998px) {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
     .header-container {
         display: flex;
 
@@ -89,9 +94,18 @@
     .skill-container {
         display: flex;
         justify-content: space-between;
+
+        @media (max-width: 600px) {
+            display: block;
+        }
     
         .skill-column {
             width: 25.5vw;
+
+            @media (max-width: 600px) {
+                margin-top: 1rem;
+                width: 100%;
+            }
     
             .skill-item {
                 display: flex;
