@@ -102,15 +102,15 @@ const skillsData = [
   {
     title: 'Frontend',
     skills: [
-      { name: 'React', score: 5 },
-      { name: 'React Native', score: 5 },
+      { name: 'React', score: 4.5 },
+      { name: 'React Native', score: 4.5 },
       { name: 'Unstated/Redux', score: 4 },
       { name: 'Typescipt', score: 4 },
       { name: 'Performance Tuning', score: 4 },
       { name: 'Vue', score: 3.5 },
       { name: 'Webpack & Babel', score: 3 },
-      { name: 'Antd', score: 3 },
-      { name: 'Bootstrap', score: 3 },
+      // { name: 'Antd', score: 3 },
+      // { name: 'Bootstrap', score: 3 },
       { name: 'Sass', score: 2 },
       { name: 'iOS & Android', score: 2 },
     ]
@@ -120,14 +120,14 @@ const skillsData = [
     skills: [
       { name: 'Python', score: 5 },
       { name: 'Django', score: 4.5 },
-      { name: 'RESTful APIs', score: 4 },
+      { name: 'RESTful APIs', score: 4.5 },
       { name: 'System Design', score: 4 },
       { name: 'Performance Tuning', score: 4 },
       { name: 'Golang', score: 3 },
       { name: 'MySQL', score: 3 },
       { name: 'Node', score: 2 },
-      { name: 'Redis', score: 2 },
-      { name: 'Java', score: 2 },
+      // { name: 'Redis', score: 2 },
+      // { name: 'Java', score: 2 },
       { name: 'C(w/ STL)', score: 2 },
     ],
   },
@@ -159,11 +159,20 @@ const projectsData = [
       '性能优化: 早期采用 TypeORM + Sqlite 做消息的客户端持久化, 随后为降低 TypeORM 运行时开销, 减少 bridge 通信成本, 将重要且稳定的业务替换成raw sql。',
       '后端优化: 指导后端以"写扩散"思路重新设计数据库Schema, 要求以RESTful风格编写接口, 排查后端 N+1 问题, 实现可靠高效的历史消息拉取、已读、咚（类似于钉钉的“钉一下”）、机器人消息等增强功能。',
       '视频会议: 基于 jitsi-meet(WebRTC SFU) 开源项目，二次开发音视频会议功能, 为公司内部远程办公、开会、视频面试等业务提供支持。',
-      '开发功能: 研发、审校日常办公功能，如：流程批量处理, 薪资查询, 远程办公打卡, 日程(会议), 通讯录, 活动页, 集成微信sdk等。',
+      '功能开发: 研发、审校日常办公功能，如：流程批量处理, 薪资查询, 远程办公打卡, 日程, 通讯录, 活动页, 集成微信sdk等。',
       '研发管理: 制定研发规范, 统一项目整体代码风格, 明确研发工作流, 提高模块实现质量。',
       '基础设施: 编写自动化打包脚本、搭建Sentry、Jenkins等, 为项目自动化部署、异常监控提供支持。',
       '热更新: 基于替换JSBundle实现APP热更新, 开发了对应的静态资源存储、分发平台 MyAppCenter, 开发了灵活的策略支持对指定用户、部门或者全员推送更新。',
       '搭建DevOps工作流: 研发Merge Request会自动触发Jenkins构建并推送到 MyAppCenter, 对应Bundle会以二维码图片消息推送给相关人员, 通过APP内置扫码功能即可更新。测试通过的Bundle即可作为RC随时推送给用户, 提升App功能的开发和交付的效率。'
+    ],
+    detailsInEnglish: [
+      'Background: In May 2019, I took over the half-finished RN project that was not delivered. I refactored and delivered that OA App with Typescript in next 2 months. In the first version, users could approve flow and communicate through text and pictures.',
+      'State Management: I adopt unstated library to handle messages in object-orient style. A cache was impletmented in the section where Unstated connects with UI components to optimize performance.',
+      'IO Performance Optimization: Replace typeorm with raw sql in critial path, to reduce the overhead of runtime and the load of JS-bridge.',
+      'Backend refaction: I re-designed the IM system in "write ahead" way, and asked the backend engineer to develop API in RESTful style. I founed and solved most of the N+1 problem in backend system. After refaction, a lot of advanced IM features were implented, such as read receipts and alerts.',
+      'Video Conferening: Integrated the jitsi-meet (an open source WebRTC SFU) into IM App, to provide support for remote conference and video interview.',
+      'Feature Development: R&D and code review of daily demands, such as: workflow batch processing, salary inquiry, remote office sign-in, calendar, contact, integration of WeChat SDK, etc.',
+      'Specification Development: Norm-setting the code style and R&D workflow, to improve the quality of module implementation.'
     ]
   },
   {
@@ -196,14 +205,15 @@ const projectsData = [
   {
     id: 4,
     name: '其他',
-    date: '2018.4 - 至今',
+    date: '',
     keywords: ['Dashboard', '监控系统', 'ECharts'],
     details: [
+      '研发插件(2021.10 - 至今): 以开发的简易OIDC Provider为基础, 通过webhooks打通代码仓库、项目管理系统和内部IM, 并提供代码统计功能。',
+      '文字头像渲染服务(2021.9): 开发服务端渲染方案, 解决文字头像业务在各端出现的兼容性问题。项目中计算与存储分离, 性能通过了压测, 已在全产品中应用。',
+      '周报系统(2021.8): 开发了统一的内部周报系统, 具有附件、填写提醒、汇总导入、抄送等功能, 与内部IM深度集成。',
       '运营大屏(2018.4 - 2019.5): 从数据中台的报表数据库取数, 为运营中台持续开发并维护业务监控大屏。',
       '第一届WAIC会展大屏(2018.8): 开发公司在第一届世界人工智能大会的会展大屏, 展示实时股票市场数据和数据分析系统的数据。',
-      '周报系统(2021.8): 开发了统一的内部周报系统, 具有附件、填写提醒、汇总导入、抄送等功能, 与内部IM深度集成。',
-      '文字头像渲染服务(2021.9): 开发服务端渲染方案, 解决文字头像业务在各端出现的兼容性问题。项目中计算与存储分离, 性能通过了压测, 已在全产品中应用。',
-      '研发插件(2021.10 - 至今): 以开发的简易OIDC Provider为基础, 通过webhooks打通代码仓库、项目管理系统和内部IM, 并提供代码统计功能。',
+      'Abaqus自动化建模(2017.1-2018.4): 基于Abaqus的Python接口开发网壳结构的自动化建模和迭代找形程序, 探索一种可简易布置后一次拉升成型的网壳建筑方案的可行性。'
     ]
   }
 ]
@@ -280,10 +290,10 @@ function Resume() {
             <div className='header-basic-info'>
               <h1>{t('name', lang)}</h1>
               <h2>{t('currentPosition', lang)}</h2>
-              <h5>aweffr@foxmail.com</h5>
+              <h4>15026950096 | aweffr@foxmail.com | {_t('WeChat')}: aweffr</h4>
             </div>
             <div className='header-summary'>
-              <p>{t('summary', lang)}</p>
+              {/* <p>{t('summary', lang)}</p> */}
             </div>
           </section>
 
@@ -385,9 +395,13 @@ function Resume() {
                     </div>
                     <ul>
                       {
-                        project.details.map((text, idx) => (
-                          <li key={idx}><ProjectDesc text={text} /></li>
-                        ))
+                        project.details.map((text, idx) => {
+                          if (lang === Language.english && project.detailsInEnglish?.[idx]) {
+                            return <li key={idx}><ProjectDesc text={project.detailsInEnglish[idx]} /></li>
+                          } else {
+                            return <li key={idx}><ProjectDesc text={text} /></li>
+                          }
+                        })
                       }
                     </ul>
                   </div>

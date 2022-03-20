@@ -11,4 +11,5 @@ export default {
     "System Design": "系统设计",
     "Performance Tuning": "性能优化",
     "System Programming": "Linux系统编程",
+    "WeChat": "微信"
 }
