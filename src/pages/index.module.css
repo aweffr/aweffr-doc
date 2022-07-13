@@ -21,3 +21,14 @@
   align-items: center;
   justify-content: center;
 }
+
+.footerBeian {
+  text-align: center;
+  padding-top: 0;
+  padding-bottom: var(--ifm-footer-padding-vertical);
+  margin-top: calc(-1 * var(--ifm-footer-padding-vertical));
+}
+
+.footerBeianLink {
+  color: var(--ifm-footer-link-color);
+}

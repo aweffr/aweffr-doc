@@ -42,7 +42,7 @@ const config = {
   ],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+  /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
         title: 'aweffr\'s tech blog',
@@ -129,7 +129,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} | 沪ICP备18047501号-1`,
+        // copyright: `Copyright © ${new Date().getFullYear()} | 沪ICP备18047501号-1`,
       },
       prism: {
         theme: lightCodeTheme,

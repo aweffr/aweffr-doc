@@ -28,13 +28,19 @@ function HomepageHeader() {
 export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
-      <HomepageHeader />
-      <main>
-        <HomepageFeatures />
-      </main>
-    </Layout>
+    <>
+      <Layout
+        title={`Hello from ${siteConfig.title}`}
+        description="Description will go into a meta tag in <head />">
+        <HomepageHeader/>
+        <main>
+          <HomepageFeatures/>
+        </main>
+      </Layout>
+      <div className={clsx("footer", "footer--dark", styles.footerBeian)}>
+        {`Copyright © ${new Date().getFullYear()} | `}
+        <a className={styles.footerBeianLink} href="https://beian.miit.gov.cn/" target="_blank">沪ICP备18047501号-1</a>
+      </div>
+    </>
   );
 }
