@@ -39,7 +39,7 @@ export default function Home(): JSX.Element {
       </Layout>
       <div className={clsx("footer", "footer--dark", styles.footerBeian)}>
         {`Copyright © ${new Date().getFullYear()} | `}
-        <a className={styles.footerBeianLink} href="https://beian.miit.gov.cn/" target="_blank">沪ICP备18047501号-1</a>
+        <a className={styles.footerBeianLink} href="https://beian.miit.gov.cn/" target="_blank">沪ICP备18047501号-2</a>
       </div>
     </>
   );
