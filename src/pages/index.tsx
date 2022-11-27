@@ -16,8 +16,8 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/intro">
-            进入文档主页 🛫️
+            to="/blog">
+            进入博客 🛫️
           </Link>
         </div>
       </div>
@@ -30,8 +30,8 @@ export default function Home(): JSX.Element {
   return (
     <>
       <Layout
-        title={`Hello from ${siteConfig.title}`}
-        description="Description will go into a meta tag in <head />">
+        title={`${siteConfig.title}`}
+        description="aweffr的个人博客">
         <HomepageHeader/>
         <main>
           <HomepageFeatures/>

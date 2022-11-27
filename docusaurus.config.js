@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'aweffr\'s tech blog',
+  title: '个人心得分享',
   tagline: 'A passionate problem solver',
   url: 'https://aweffr.com',
   baseUrl: '/',
@@ -31,8 +31,7 @@ const config = {
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
-          editUrl:
-            'https://github.com/aweffr/aweffr-doc/tree/master/',
+          editUrl: 'https://github.com/aweffr/aweffr-doc/tree/master/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -45,22 +44,22 @@ const config = {
   /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'aweffr\'s tech blog',
+        title: 'aweffr\'s 个人心得分享',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Logo',
           src: 'img/favicon.jpeg',
         },
         items: [
+          {
+            to: '/blog',
+            label: '博客',
+            position: 'left'
+          },
           {
             type: 'doc',
             docId: 'intro',
             position: 'left',
             label: '文档',
-          },
-          {
-            to: '/blog',
-            label: '博客',
-            position: 'left'
           },
           {
             to: '/resume',
