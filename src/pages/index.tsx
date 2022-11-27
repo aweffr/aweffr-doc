@@ -39,7 +39,6 @@ export default function Home(): JSX.Element {
           <HomepageFeatures/>
         </main>
       </Layout>
-      <LicenseFooter/>
     </>
   );
 }
