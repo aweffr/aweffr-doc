@@ -267,7 +267,9 @@ function Resume() {
   return (
     <Layout
       title={`${_t('Resume')} | ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      description="Description will go into a meta tag in <head />"
+
+    >
       <main>
         <div className="resume-container">
           <section>

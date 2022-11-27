@@ -5,6 +5,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import LicenseFooter from "@site/src/components/LicenseFooter";
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -28,14 +29,6 @@ function HomepageHeader() {
 export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
 
-  const [govRecordText, setGovRecordText] = useState<string>(() => {
-    if (location.host.includes('aweffr.com')) {
-      return '沪ICP备18047501号-2';
-    } else {
-      return '沪ICP备18047501号-1';
-    }
-  });
-
   return (
     <>
       <Layout
@@ -46,10 +39,7 @@ export default function Home(): JSX.Element {
           <HomepageFeatures/>
         </main>
       </Layout>
-      <div className={clsx("footer", "footer--dark", styles.footerBeian)}>
-        {`Copyright © ${new Date().getFullYear()} | `}
-        <a className={styles.footerBeianLink} href="https://beian.miit.gov.cn/" target="_blank">{govRecordText}</a>
-      </div>
+      <LicenseFooter/>
     </>
   );
 }
