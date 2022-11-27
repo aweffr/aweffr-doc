@@ -28,12 +28,13 @@ function HomepageHeader() {
 export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
 
-  const [govRecordText, setGovRecordText] = useState<string>('沪ICP备18047501号-1');
-  useEffect(() => {
+  const [govRecordText, setGovRecordText] = useState<string>(() => {
     if (location.host.includes('aweffr.com')) {
-      setGovRecordText('沪ICP备18047501号-2');
+      return '沪ICP备18047501号-2';
+    } else {
+      return '沪ICP备18047501号-1';
     }
-  }, []);
+  });
 
   return (
     <>
