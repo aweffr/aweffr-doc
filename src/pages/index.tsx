@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
@@ -27,6 +27,14 @@ function HomepageHeader() {
 
 export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
+
+  const [govRecordText, setGovRecordText] = useState<string>('沪ICP备18047501号-1');
+  useEffect(() => {
+    if (location.host.includes('aweffr.com')) {
+      setGovRecordText('沪ICP备18047501号-2');
+    }
+  }, []);
+
   return (
     <>
       <Layout
@@ -39,7 +47,7 @@ export default function Home(): JSX.Element {
       </Layout>
       <div className={clsx("footer", "footer--dark", styles.footerBeian)}>
         {`Copyright © ${new Date().getFullYear()} | `}
-        <a className={styles.footerBeianLink} href="https://beian.miit.gov.cn/" target="_blank">沪ICP备18047501号-2</a>
+        <a className={styles.footerBeianLink} href="https://beian.miit.gov.cn/" target="_blank">{govRecordText}</a>
       </div>
     </>
   );
